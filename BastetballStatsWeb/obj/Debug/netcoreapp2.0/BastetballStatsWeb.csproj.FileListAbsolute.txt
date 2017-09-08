@@ -1,0 +1,13 @@
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\BastetballStatsWeb.deps.json
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\BastetballStatsWeb.runtimeconfig.json
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\BastetballStatsWeb.runtimeconfig.dev.json
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\BastetballStatsWeb.dll
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.csprojResolveAssemblyReference.cache
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.csproj.CoreCompileInputs.cache
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.AssemblyInfoInputs.cache
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.AssemblyInfo.cs
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\Models.dll
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\BastetballStatsWeb.pdb
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\bin\Debug\netcoreapp2.0\Models.pdb
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.dll
+F:\Visual studio projekti\BastetballStatsWeb\BastetballStatsWeb\obj\Debug\netcoreapp2.0\BastetballStatsWeb.pdb
