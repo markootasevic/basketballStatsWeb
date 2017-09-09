@@ -135,3 +135,4 @@ F:\Visual studio projekti\BastetballStatsWeb\Models\bin\Debug\System.Runtime.Com
 F:\Visual studio projekti\BastetballStatsWeb\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 F:\Visual studio projekti\BastetballStatsWeb\Models\obj\Debug\Models.dll
 F:\Visual studio projekti\BastetballStatsWeb\Models\obj\Debug\Models.pdb
+F:\Visual studio projekti\BastetballStatsWeb\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using BastetballStatsWeb.ServiceImplementation;
+using BastetballStatsWeb.Services;
 
 namespace BastetballStatsWeb
 {
@@ -26,9 +28,9 @@ namespace BastetballStatsWeb
             services.AddMvc();
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<BasketballstatsContext>();
-            //services.AddEntityFrameworkSqlServer().
-            //    AddDbContext<BasketballstatsContext>
-            //    (options => options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));
+            services.AddScoped<IPlayerService, PlayerService>();
+            services.AddScoped<ITeamService, TeamService>();
+            services.AddScoped<IGameService, GameService>();
 
         }
 

@@ -15,6 +15,11 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,8 +36,28 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Player <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Player" asp-action="Add">Insert</a></li>
+                            <li><a asp-controller="Player" asp-action="Search">Search and update</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Team<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Team" asp-action="Create">Insert</a></li>
+                            <li><a asp-controller="Team" asp-action="Index">Search and update</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Game<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-controller="Game" asp-action="Create">Insert</a></li>
+                            <li><a asp-controller="Game" asp-action="Search">Search and view stats</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -41,15 +66,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - BastetballStatsWeb</p>
+            <p>2017 - Basteball stats web app &copy; Marko Otasevic</p>
         </footer>
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
+    
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"

@@ -33,3 +33,13 @@
         display: none;
     }
 }
+
+/*MY CSS*/
+
+.search_input {
+    width: 300px;
+}
+
+.search_text {
+    font-size: 25px;
+}
