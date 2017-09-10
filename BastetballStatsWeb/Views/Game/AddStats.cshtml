@@ -1,0 +1,89 @@
+﻿@model Models.Game
+@{
+    ViewData["Title"] = "Add Stats";
+}
+<h2>AddStats</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddStats" method="post">
+                <div class="form-group">
+                    <label>Select team</label>
+                    <select id="teamSelect" class="form-control" onchange="changePlayers()">
+                        <option value="@Model.HomeTeam.TeamId">@Model.HomeTeam.Name</option>
+                        <option value="@Model.GuestTeam.TeamId">@Model.GuestTeam.Name</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="playerSelect">
+                </div>
+                <div id="statItems">
+                    <div id="oneStatItem">
+                        <div class="card">
+                            <div class="card-header">
+                                Add one stat item
+                            </div>
+                            <div class="card-block">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input class="form-control" type="text" name="Name" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Value</label>
+                                    <div class="row flexDisplay">
+                                        <input class="form-control" type="text" name="Value" />
+                                        <span><i class="fa fa-minus-square removeStat" onclick="removeStatItem(this)" aria-hidden="true"></i></span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <i class="fa fa-plus-square addStatItem" aria-hidden="true" onclick="addOneMore()"></i>
+                <br />
+                <br />
+                <input class="btn btn-primary" type="submit" value="Save stats"/>
+            </form>
+            <br />
+            <a class="btn btn-default" asp-action="Index">Back to game list</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            method: "post",
+            url: "/Game/GetPlayerPartial",
+            data: "teamId=@Model.HomeTeamId",
+            success: function (result) {
+                $("#playerSelect").html(result);
+            }
+        });
+    });
+
+    function changePlayers() {
+        var teamId = $("#teamSelect").val();
+        $.ajax({
+            method:"post",
+            url: "/Game/GetPlayerPartial",
+            data: "teamId=" + teamId,
+            success: function (result) {
+                $("#playerSelect").html(result);
+            }
+        });
+    }
+
+    function addOneMore() {
+        var html = "<div id='oneStatItem'><div class='card'><div class='card-header'>Add one stat item</div><div class='card-block'><div class='form-group'><label>Name</label><input class='form-control' type='text' name='Name' /></div><div class='form-group'><label>Value</label><div class='row flexDisplay'><input class='form-control' type='text' name='Value' /><span><i class='fa fa-minus-square removeStat' onclick='removeStatItem(this)' aria-hidden='true'></i></span></div></div></div></div></div>";
+        $("#statItems").append(html);
+    }
+
+    function removeStatItem(a) {
+        a.closest('#oneStatItem').remove();
+    }
+
+</script>

@@ -1,0 +1,12 @@
+﻿@using Models
+@model List<Player>
+
+    <label>Select player</label>
+    <select class="form-control" name="PlayerId">
+        @foreach(var player in Model)
+    {
+            <option value="@player.PlayerId">@player.Name</option>
+    }
+    </select>
+
+

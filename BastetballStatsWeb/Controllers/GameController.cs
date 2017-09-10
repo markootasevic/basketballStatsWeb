@@ -12,11 +12,13 @@ namespace BastetballStatsWeb.Controllers
     {
         private IGameService _gameService;
         private ITeamService _teamService;
+        private IPlayerService _playerService;
 
-        public GameController(IGameService gameService, ITeamService teamService)
+        public GameController(IGameService gameService, ITeamService teamService, IPlayerService playerService)
         {
             _gameService = gameService;
             _teamService = teamService;
+            _playerService = playerService;
 
         }
 
@@ -44,6 +46,36 @@ namespace BastetballStatsWeb.Controllers
         {
             var stat = _gameService.getStatsForGame(id);
             return View(stat);
+        }
+
+        [HttpGet]
+        public IActionResult AddStats(int id)
+        { 
+            return View(_gameService.getById(id));
+        }
+
+        [HttpPost]
+        public IActionResult GetPlayerPartial(int teamId)
+        {
+            var players = _playerService.getAllPlayerForTeam(teamId);
+            return PartialView("_PlayerSelect", players);
+        }
+
+        [HttpPost]
+        public IActionResult AddStats(Stats stats,string[] Name,string[] Value, int id)
+        {
+            stats.GameId = id;
+            stats.StatsItem = new List<StatsItem>();
+            for (int i = 0; i < Name.Length; i++)
+            {
+                stats.StatsItem.Add(new StatsItem {
+                    Name = Name[i],
+                    Value = Convert.ToInt32(Value[i])
+                });
+            }
+            _gameService.AddStats(stats);
+            _gameService.Commit();
+            return View("Index",_gameService.getAll());
         }
     }
 }

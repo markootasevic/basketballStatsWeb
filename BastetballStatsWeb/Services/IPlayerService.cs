@@ -15,5 +15,6 @@ namespace BastetballStatsWeb.Services
         IEnumerable<Player> getAll();
         Player GetById(int id);
         void Update(PlayerViewModel p);
+        List<Player> getAllPlayerForTeam(int teamId);
     }
 }

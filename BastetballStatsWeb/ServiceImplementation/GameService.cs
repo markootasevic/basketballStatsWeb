@@ -36,5 +36,25 @@ namespace BastetballStatsWeb.ServiceImplementation
         {
             return _context.Stats.Include("StatsItem").Include("Player").Where(s => s.GameId == gameId).ToList();
         }
+
+        public Game getById(int id)
+        {
+            return _context.Games.Include("HomeTeam").Include("GuestTeam").FirstOrDefault(g => g.GameId == id);
+        }
+
+        public void AddStats(Stats stats)
+        {
+            var stat = _context.Stats.Include("StatsItem").FirstOrDefault(s => s.PlayerId == stats.PlayerId && s.GameId == stats.GameId);
+            if(stat == null)
+            {
+                _context.Stats.Add(stats);
+            } else
+            {
+                foreach(var st in stats.StatsItem)
+                {
+                    stat.StatsItem.Add(st);
+                }
+            }
+        }
     }
 }

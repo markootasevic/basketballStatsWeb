@@ -12,5 +12,7 @@ namespace BastetballStatsWeb.Services
         void Insert(Game game);
         IEnumerable<Game> getAll();
         List<Stats> getStatsForGame(int gameId);
+        Game getById(int id);
+        void AddStats(Stats stats);
     }
 }

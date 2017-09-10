@@ -49,7 +49,8 @@
                 @Html.DisplayFor(modelItem => item.HomeTeam.Name)
             </td>
             <td>
-                <a asp-action="Stats" asp-route-id="@item.GameId">View stats</a>
+                <a asp-action="Stats" asp-route-id="@item.GameId">View stats</a> |
+                <a asp-action="AddStats" asp-route-id="@item.GameId">Add stats for game</a>
             </td>
         </tr>
 }

@@ -87,5 +87,17 @@ namespace BastetballStatsWeb.ServiceImplementation
                 }
             }
         }
+
+        public List<Player> getAllPlayerForTeam(int teamId)
+        {
+            var playsFor = _context.PlaysFor.Include("Player").Where(pf => pf.TeamId == teamId && pf.DateTo == null).ToList();
+            List<Player> players = new List<Player>();
+            foreach(var p in playsFor)
+            {
+                players.Add(p.Player);
+            }
+            return players;
+        }
+
     }
 }

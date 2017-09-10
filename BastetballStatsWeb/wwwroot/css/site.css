@@ -44,4 +44,24 @@
     font-size: 25px;
 }
 
+.statsTable {
+    width: 50%;
+}
+
+.addStatItem {
+    font-size: 45px !important;
+    cursor:pointer;
+}
+
+.removeStat {
+    font-size: 34px !important;
+    padding-left: 15px !important;
+    margin: 0px !important;
+}
+
+.flexDisplay {
+    display: flex;
+    margin-left: 0px;
+}
+
 
