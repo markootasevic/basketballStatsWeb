@@ -4,13 +4,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create a new game</h2>
 
-<h4>Game</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
@@ -29,14 +28,27 @@
             </div>
             <div class="form-group">
                 <label asp-for="HomeTeamId" class="control-label">Home team</label>
-                <select asp-for="HomeTeamId" class ="form-control" asp-items="ViewBag.Teams"></select>
+                <select id="homeTeam" asp-for="HomeTeamId" class="form-control">
+                    @foreach(var team in ViewBag.Teams)
+                    {
+                        <option value="@team.TeamId">@team.Name</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="GuestTeamId" class="control-label">Guest team</label>
-                <select asp-for="GuestTeamId" class ="form-control" asp-items="ViewBag.Teams"></select>
+                <select id="guestTeam" asp-for="GuestTeamId" class="form-control">
+                    @foreach(var team in ViewBag.Teams)
+                    {
+                        <option value="@team.TeamId">@team.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="alert alert-danger" id="teamsErrMsg" style="display:none">
+                Home and guest teams can't be the same 
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" onclick="checkTeams(event)" class="btn btn-default" />
             </div>
         </form>
     </div>
@@ -49,3 +61,13 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    function checkTeams(event) {
+        if ($('#homeTeam').val() == $('#guestTeam').val()) {
+            $('#teamsErrMsg').show();
+            $('#teamsErrMsg').fadeOut(5000);
+            event.preventDefault();
+        }
+    }
+</script>

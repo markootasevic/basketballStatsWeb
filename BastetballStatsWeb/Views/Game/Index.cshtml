@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Models.Game>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>See all games</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    Home team points
+                </th>
+                <th>
+                    Guest team points
+                </th>
+            <th>
+                Guest team
+            </th>
+            <th>
+                Home team
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Date.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeamPts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuestTeamPts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GuestTeam.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam.Name)
+            </td>
+            <td>
+                <a asp-action="Stats" asp-route-id="@item.GameId">View stats</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
