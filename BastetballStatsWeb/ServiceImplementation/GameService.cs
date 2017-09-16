@@ -56,5 +56,10 @@ namespace BastetballStatsWeb.ServiceImplementation
                 }
             }
         }
+
+        public List<Game> getLatestGames()
+        {
+            return _context.Games.Include("HomeTeam").Include("GuestTeam").OrderByDescending(g => g.Date).Take(10).ToList();
+        }
     }
 }

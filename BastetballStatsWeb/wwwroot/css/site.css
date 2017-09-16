@@ -64,4 +64,27 @@
     margin-left: 0px;
 }
 
+.oneGame {
+    text-align: center;
+}
+
+.teamSeparator {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 46px;
+}
+
+.homeTeam {
+    margin-right: 10px;
+}
+
+.guestTeam {
+    margin-left:10px;
+}
+
+.oneGameTitle {
+    text-align:center;
+    padding-left: 95px;
+}
+
 

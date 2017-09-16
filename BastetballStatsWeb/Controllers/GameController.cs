@@ -34,7 +34,7 @@ namespace BastetballStatsWeb.Controllers
         {
             _gameService.Insert(game);
             _gameService.Commit();
-            return View("Index", _gameService.getAll());
+            return RedirectToAction("Index");
         }
 
         public IActionResult Index()
@@ -75,7 +75,7 @@ namespace BastetballStatsWeb.Controllers
             }
             _gameService.AddStats(stats);
             _gameService.Commit();
-            return View("Index",_gameService.getAll());
+            return RedirectToAction("Index");
         }
     }
 }

@@ -62,7 +62,7 @@ namespace BastetballStatsWeb.Controllers
             player.ID = id;
             _playerService.Update(player);
             int res = _playerService.Commit();
-            return View("Search", _playerService.getAll());
+            return RedirectToAction("Search");
         }
     }
 }
